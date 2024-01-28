@@ -556,6 +556,7 @@ function checkpass(){
     }
     else{
         document.querySelector('.passwordError').classList.replace('d-block','d-none'); 
+        btnDisable() ;
     }
   
 }
@@ -614,9 +615,7 @@ function btnDisable() {
     }
 }
 
-
-
-
+btnDisable();
 
 
 
