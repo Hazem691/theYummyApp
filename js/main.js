@@ -404,18 +404,6 @@ function displayTheDetails(details){
 
 
 // ---------------------------------------------------   contact Us --------------------------------------
-
-let name = document.querySelector("#nameInput");
-let email = document.querySelector("#emailInput");
-let phone = document.querySelector("#phoneInput") ;
-
-
-let age = document.querySelector("#ageInput");
-let password = document.querySelector("#passwordinput") ;
-let repassword = document.querySelector("#repasswordinput") ;
-let btnbutton  =  document.querySelector(".submitting");
-
-
 function showContacts(){
     datarows.innerHTML = " ";
 
@@ -471,6 +459,12 @@ function showContacts(){
     
     `
 
+    
+  
+
+
+     
+    
 
 
 }
@@ -478,10 +472,12 @@ function showContacts(){
 
 
 
+
+
 function validateName(){
     let regex = /^[a-zA-Z\s]+$/ ;
 
-    if(regex.test(name.value)){
+    if(regex.test(document.querySelector("#nameInput").value)){
         return true ;
     }
     else{
@@ -491,7 +487,7 @@ function validateName(){
 
 function validateEmail(){
     let regex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/ ;
-    if(regex.test(email.value)){
+    if(regex.test(document.querySelector("#emailInput").value)){
         return true ;
     }
     else{
@@ -501,7 +497,7 @@ function validateEmail(){
 }
 function validatePhone(){
     let regex = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/ ;
-    if(regex.test(phone.value)){
+    if(regex.test(document.querySelector("#phoneInput").value)){
         return true ;
     }
     else{
@@ -512,7 +508,7 @@ function validatePhone(){
 function validateAge(){
     let regex = /^(0?[1-9]|[1-9][0-9]|[1][1-9][1-9]|200)$/ ;
     
-    if(regex.test(age.value)){
+    if(regex.test(document.querySelector("#ageInput").value)){
         return true ;
     }
     else{
@@ -525,7 +521,7 @@ function validateAge(){
 
 function validatePass(){
     let regex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/ ;
-    if(regex.test(password.value)){
+    if(regex.test(document.querySelector("#passwordinput").value)){
         return true ;
     }
     else{
@@ -533,7 +529,7 @@ function validatePass(){
     }
 }
 function validateRepass(){
-    if(repassword.value === password.value){
+    if(document.querySelector("#repasswordinput").value === document.querySelector("#passwordinput").value){
         return true ;
     }
     else{
@@ -611,9 +607,9 @@ function checkAge(){
 }
 function btnDisable() {
     if (validateName() && validateAge() && validateEmail() && validatePass() && validatePhone() && validateRepass()) {
-        btnbutton.removeAttribute('disabled');
+        document.querySelector(".submitting").removeAttribute('disabled');
     } else {
-        btnbutton.setAttribute('disabled', true);
+        document.querySelector(".submitting").setAttribute('disabled', true);
         // Alternatively: btnbutton.disabled = true;
     }
 }
